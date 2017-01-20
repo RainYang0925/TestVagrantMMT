@@ -19,15 +19,14 @@ public class BaseClass {
 
 	public static Process process;
 	public static AndroidDriver driver;
-	public static String folder;
 	public static DateFormat dateformat;
 
 	//Start server
 	public static void Start_Server() throws IOException, InterruptedException{
 
-		String Start_Server="C:\\Program Files\\Appium\\node.exe  D:\\Appium\\node_modules\\appium\\bin\\appium.js";
+		//String Start_Server="C:\\Program Files\\Appium\\node.exe  D:\\Appium\\node_modules\\appium\\bin\\appium.js";
 
-		process = Runtime.getRuntime().exec(Start_Server);
+		process = Runtime.getRuntime().exec(Utils.Start_Server);
 
 		if(process!=null){
 			System.out.println("Appium Server is Started");
@@ -45,13 +44,13 @@ public class BaseClass {
 		DesiredCapabilities capabilities= new DesiredCapabilities();
 
 		//device details
-		capabilities.setCapability("deviceName", "GT-I9300I");
-		capabilities.setCapability("platformName", "Android");
-		capabilities.setCapability("platformVersion", "4.4.4");
+		capabilities.setCapability(Utils.DEVICE_NAME, "GT-I9300I");
+		capabilities.setCapability(Utils.PLATFORM_NAME, "Android");
+		capabilities.setCapability(Utils.PLATFORM_VERSION, "4.4.4");
 
 		//app details
-		capabilities.setCapability("appPackage", "com.makemytrip");
-		capabilities.setCapability("appActivity", "com.mmt.travel.app.home.ui.HomeActivity");
+		capabilities.setCapability(Utils.APP_PACKAGE, "com.makemytrip");
+		capabilities.setCapability(Utils.APP_ACTIVITY, "com.mmt.travel.app.home.ui.HomeActivity");
 
 		//appium server details
 		driver= new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
@@ -92,16 +91,16 @@ public class BaseClass {
 	
 	public static void snapShot_MMT() throws IOException{
 		
-		folder = "screenshot";
+		Utils.folder = "screenshot";
         
 		File f=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         
         dateformat=new  SimpleDateFormat("dd-MMM-yyyy__hh_mm_ssaa");
         
-        new File(folder).mkdir();
+        new File(Utils.folder).mkdir();
       
         String file_name=dateformat.format(new Date())+".png";
        
-        FileUtils.copyFile(f, new File(folder + "/" + file_name));
+        FileUtils.copyFile(f, new File(Utils.folder + "/" + file_name));
 	}
 }
