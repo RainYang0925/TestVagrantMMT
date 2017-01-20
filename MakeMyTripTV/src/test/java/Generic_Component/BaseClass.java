@@ -41,8 +41,8 @@ public class BaseClass {
 		capabilities.setCapability("platformVersion", "4.4.4");
 
 		//app details
-		capabilities.setCapability("appPackage", "com.boondoggle.mortcalc");
-		capabilities.setCapability("appActivity", "com.boondoggle.mortcalc.MortCalc");
+		capabilities.setCapability("appPackage", "com.makemytrip");
+		capabilities.setCapability("appActivity", "com.mmt.travel.app.home.ui.HomeActivity");
 
 		//appium server details
 		driver= new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
