@@ -104,7 +104,7 @@ public class PageObjectSearch {
 	//Continue with final fare details
 	@AndroidFindBy(id = "com.makemytrip:id/button_fare_change_continue")
 	public WebElement click_FinalContinue;
-	
+
 
 	//---------------------------------------------------------------
 
@@ -297,18 +297,18 @@ public class PageObjectSearch {
 		click_AgreeContinue.click(); 
 		Thread.sleep(2000);
 	}
-	
+
 	public void click_ContinuePriceButton() throws InterruptedException {
 		click_FinalContinue.click(); 
 		Thread.sleep(2000);
 	}
-	
+
 	//Adult details are not added initially. Hence, User reaches to this activity again
 	public void click_BookFlightButton2() throws InterruptedException {
 		click_BookFlight.click(); 
 		Thread.sleep(2000);
 	}
-	
+
 	//Airlines Server error for selected Test Data(Travel Date, Random Passenger Details).........
 
 }

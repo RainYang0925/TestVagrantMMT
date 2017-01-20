@@ -13,6 +13,8 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
+import bsh.util.Util;
 import io.appium.java_client.android.AndroidDriver;
 
 public class BaseClass {
@@ -44,13 +46,13 @@ public class BaseClass {
 		DesiredCapabilities capabilities= new DesiredCapabilities();
 
 		//device details
-		capabilities.setCapability(Utils.DEVICE_NAME, "GT-I9300I");
-		capabilities.setCapability(Utils.PLATFORM_NAME, "Android");
-		capabilities.setCapability(Utils.PLATFORM_VERSION, "4.4.4");
+		capabilities.setCapability(Utils.DEVICE_NAME, Utils.DEVICE_NAME_DETAILS);
+		capabilities.setCapability(Utils.PLATFORM_NAME, Utils.PLATFORM_NAME_DETAILS);
+		capabilities.setCapability(Utils.PLATFORM_VERSION, Utils.PLATFORM_VERSION_DETAILS);
 
 		//app details
-		capabilities.setCapability(Utils.APP_PACKAGE, "com.makemytrip");
-		capabilities.setCapability(Utils.APP_ACTIVITY, "com.mmt.travel.app.home.ui.HomeActivity");
+		capabilities.setCapability(Utils.APP_PACKAGE, Utils.MMT_PACKAGE);
+		capabilities.setCapability(Utils.APP_ACTIVITY, Utils.MMT_ACTIVITY);
 
 		//appium server details
 		driver= new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
