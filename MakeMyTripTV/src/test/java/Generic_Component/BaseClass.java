@@ -14,7 +14,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import bsh.util.Util;
 import io.appium.java_client.android.AndroidDriver;
 
 public class BaseClass {
@@ -25,8 +24,6 @@ public class BaseClass {
 
 	//Start server
 	public static void Start_Server() throws IOException, InterruptedException{
-
-		//String Start_Server="C:\\Program Files\\Appium\\node.exe  D:\\Appium\\node_modules\\appium\\bin\\appium.js";
 
 		process = Runtime.getRuntime().exec(Utils.Start_Server);
 
