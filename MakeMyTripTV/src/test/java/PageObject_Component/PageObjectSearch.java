@@ -2,9 +2,9 @@ package PageObject_Component;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
-import Generic_Component.BaseClass;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import Generic_Component.BaseClass;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -269,14 +269,14 @@ public class PageObjectSearch {
 		Thread.sleep(2000);
 
 		//Handling Soft Keyboard Popup
-		BaseClass.driver.sendKeyEvent(AndroidKeyCode.BACK);
+		((AndroidDriver) BaseClass.driver).sendKeyEvent(AndroidKeyCode.BACK);
 		first_Name.sendKeys(fname);
 
 		last_Name.click();
 		Thread.sleep(2000);
 
 		//Handling Soft Keyboard Popup
-		BaseClass.driver.sendKeyEvent(AndroidKeyCode.BACK);
+		((AndroidDriver) BaseClass.driver).sendKeyEvent(AndroidKeyCode.BACK);
 		last_Name.sendKeys(lname);
 
 		//Gender TD default: Male

@@ -14,12 +14,13 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 
 public class BaseClass {
 
 	public static Process process;
-	public static AndroidDriver driver;
+	public static AppiumDriver driver;
 	public static DateFormat dateformat;
 
 	//Start server
@@ -33,7 +34,7 @@ public class BaseClass {
 			System.out.println("NOT able to Start the Server");
 		}
 
-		Thread.sleep(12000);
+		Thread.sleep(18000);
 
 	}
 
@@ -43,18 +44,19 @@ public class BaseClass {
 		DesiredCapabilities capabilities= new DesiredCapabilities();
 
 		//device details
-		capabilities.setCapability(Utils.DEVICE_NAME, Utils.DEVICE_NAME_DETAILS);
-		capabilities.setCapability(Utils.PLATFORM_NAME, Utils.PLATFORM_NAME_DETAILS);
-		capabilities.setCapability(Utils.PLATFORM_VERSION, Utils.PLATFORM_VERSION_DETAILS);
+		capabilities.setCapability("deviceName", Utils.DEVICE_NAME_DETAILS);
+		capabilities.setCapability("platformName", Utils.PLATFORM_NAME_DETAILS);
+		capabilities.setCapability("platformVersion", Utils.PLATFORM_VERSION_DETAILS);
 
 		//app details
-		capabilities.setCapability(Utils.APP_PACKAGE, Utils.MMT_PACKAGE);
-		capabilities.setCapability(Utils.APP_ACTIVITY, Utils.MMT_ACTIVITY);
+		capabilities.setCapability("appPackage", Utils.MMT_PACKAGE);
+		capabilities.setCapability("appActivity", Utils.MMT_ACTIVITY);
 
 		//appium server details
 		driver= new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-
-		Thread.sleep(8000);
+		
+		driver.manage().timeouts().implicitlyWait(35, TimeUnit.SECONDS);
+		//Thread.sleep(12000);
 
 	}
 
